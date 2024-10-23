@@ -1,6 +1,6 @@
 # safe-concept-server
 
-## concept of server
+## concept of project
 each authorized user owns an encrypted file with application data.
 
 server implements DDOS protection, code, SQL injections and provides file storage.
