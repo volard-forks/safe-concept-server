@@ -41,3 +41,26 @@ it's assumed it will be used by standalone client applications that can storage 
 				- service;
 				- caching (only get_file);
 				- FS_worker;
+
+## Development
+1 set .env file:
+```bash
+cp .env.example .env
+```
+
+2 change vars in .env for your OS and preferences;
+
+3 to run server (go needed):
+```bash
+./run-server.sh
+```
+
+3 to build server
+```bash
+./build-server.sh
+```
+
+after that you can launch builded binary file:
+```bash
+./build/server
+```
