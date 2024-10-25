@@ -2,11 +2,12 @@ package route_put_file
 
 import (
 	"net/http"
+	"safe-server/guards"
 )
 
-func isRequestHeadersValid() bool {
-	// db_header, method, ...
-	return true
+func isRequestHeadersValid(r *http.Request) bool {
+	// db_header, ...
+	return r.Method == "PUT"
 }
 
 func isFileValid() bool {
@@ -23,8 +24,15 @@ func getFileContentFromRequest(r *http.Request) string {
 }
 
 func PutFileController(w http.ResponseWriter, r *http.Request) {
-	if !isRequestHeadersValid() {
+	if !isRequestHeadersValid(r) {
 		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	token := r.Header.Get("token")
+
+	if !guards.IsClientAuthorized(token) {
+		w.WriteHeader(http.StatusUnauthorized)
 		return
 	}
 
