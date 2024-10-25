@@ -3,8 +3,8 @@ package routes
 import (
 	"net/http"
 
+	route_get_file "safe-server/server/routes/file-exchanger/get_file"
 	route_put_file "safe-server/server/routes/file-exchanger/put_file"
-	route_get_file "safe-server/server/routes/get_file"
 	route_root "safe-server/server/routes/root"
 )
 
