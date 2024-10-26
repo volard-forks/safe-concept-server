@@ -10,10 +10,15 @@ func getSanitizedFileContent(fileContent string) string {
 	return fileContent
 }
 
+func getEncryptedContent(fileContent string) string {
+	// encrypt content
+	return fileContent
+}
+
 func saveFile(fileName string, fileContent string) {
 	fileNameToSave := getFileNameToSave(fileName)
 
-	fileContentToSave := getSanitizedFileContent(fileContent)
+	fileContentToSave := getEncryptedContent(getSanitizedFileContent(fileContent))
 
 	writeFileOnFS(fileNameToSave, fileContentToSave)
 }

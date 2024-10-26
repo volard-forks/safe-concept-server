@@ -5,8 +5,13 @@ func getFileNameByToken(token string) string {
 	return "mock_file_name"
 }
 
+func decryptContent(fileContent []byte) []byte {
+	// decrypt file content
+	return fileContent
+}
+
 func getClientFile(token string) (string, []byte) {
 	clientFileName := getFileNameByToken(token)
 
-	return clientFileName, getFileFromFS(clientFileName)
+	return clientFileName, decryptContent(getFileFromFS(clientFileName))
 }
